@@ -9,7 +9,8 @@
 
 ## Introduction
 
-Bienvenue dans mon guide d'apprentissage de python_for_data_science. Ce document est destiné à capturer tout ce que j'apprends sur Python.
+- Bienvenue dans mon guide d'apprentissage de python_for_data_science. Ce document est destiné à capturer tout ce que j'apprends sur Python.
+- Python 3.10 version
 
 ## Syntaxe de Base
 
@@ -40,6 +41,7 @@ Bienvenue dans mon guide d'apprentissage de python_for_data_science. Ce document
 
 - **Les dictionnaires** : Ce sont des structures de données qui permettent de stocker des paires clé-valeur. Chaque clef dans un dictionnaire doit être unique et immuable.
   Les valeurs peuvent être de n'importe quel type et peuvent se répéter.
+
   ```python
   # Dictionnaire vide
   dictionnaire_vide = {}
@@ -51,11 +53,32 @@ Bienvenue dans mon guide d'apprentissage de python_for_data_science. Ce document
   }
   ```
 
+- **Import** est un mot clef utilisé pour inclure des modules ou des bibliothèques externes dans un script.(L'objectif principal de import est de rendre disponible dans un script les fonctions, classes, et variables définies dans d'autres modules ou bibliothèques.)
+
+  - Importer un module entier. Accédez aux fonctions et classes
+
+  ```python
+  import math
+  ```
+
+  - Importer des éléments spécifiques d'un module. importe uniquement la fonction ou classe spécifique, permettant de l'utiliser directement sans préfixe.Mais peut causer des conflits de noms et rendre le code moins clair.
+
+  ```python
+  from math import sqrt
+  ```
+
+  - Utiliser un alias pour un module.
+
+  ```python
+  import numpy as np
+  ```
+
 ## Starting
 
 ### Exercice 0 : First python script
 
-**Objectif :** Modifier la chaîne de caractères de chaque objet de données pour afficher les salutations suivantes :
+**Objectif :** Vous devez modifier la chaîne de chaque objet de données pour afficher les salutations suivantes :
+"Hello World", "Hello «pays de votre campus»", "Hello «ville de votre campus»", "Hello «nom de votre campus»". :
 
 ```python
 ft_list = ["Hello", "tata!"]
@@ -88,4 +111,15 @@ print(ft_list)
 print(ft_tuple)
 print(ft_set)
 print(ft_dict)
+```
+
+### Exercice 1 : First use of package
+
+**Objectif :** Écrivez un script qui formate les dates de cette manière, bien sûr votre date ne sera pas la mienne comme dans l'exemple, mais elle doit être formatée de la même façon.
+
+```bash
+  $>python format_ft_time.py | cat -e
+  Seconds since January 1, 1970: 1,666,355,857.3622 or 1.67e+09 in scientific notation$
+  Oct 21 2022$
+  $>
 ```
