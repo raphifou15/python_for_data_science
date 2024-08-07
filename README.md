@@ -6,6 +6,7 @@
 2. [Syntaxe de Base](#syntaxe-de-base)
 3. [Starting](#starting)
    - [Exercice 0 : First python script](#exercice-0--first-python-script)
+   - [Exercice 1 : First use of package](#exercice-1--first-use-of-package)
 
 ## Introduction
 
@@ -107,4 +108,10 @@ python3.10 "path"Hello.py
   Seconds since January 1, 1970: 1,666,355,857.3622 or 1.67e+09 in scientific notation$
   Oct 21 2022$
   $>
+```
+
+### Execute code
+
+```bash
+python3.10 "path"format_ft_time.py
 ```
