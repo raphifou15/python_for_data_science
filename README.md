@@ -4,9 +4,12 @@
 
 1. [Introduction](#introduction)
 2. [Syntaxe de Base](#syntaxe-de-base)
+   - [Liste](#liste)
+   - [Tuple](#tuple)
 3. [Starting](#starting)
    - [Exercice 0 : First python script](#exercice-0--first-python-script)
    - [Exercice 1 : First use of package](#exercice-1--first-use-of-package)
+   - [Exercice 2 : First use of package](#exercice-2--first-function-python)
 
 ## Introduction
 
@@ -15,12 +18,16 @@
 
 ## Syntaxe de Base
 
+### Liste
+
 - **Liste** : Ce sont des structures de données qui permettent de stocker des éléments variés (nombres, chaînes de caractères, autres listes, objets, etc.)
 
   ```python
   # Liste mixte
   mixte = [1, "texte", 3.14, True]
   ```
+
+### Tuple
 
 - **Tuple** : Ce sont des structures de données qui permettent de stocker des éléments, mais contrairement aux listes, ils sont immuables.
   ```python
@@ -74,6 +81,37 @@
   import numpy as np
   ```
 
+- **def** Ce mot clef indique à Python que vous définissez une nouvelle fonction.
+
+  ```python
+  def saluer(nom):
+    print(f"Bonjour, {nom} !")
+  ```
+
+  Explication du code basique pour comprendre les fonctions en python
+
+  - saluer : c'est le nom de la fonction
+  - (nom) : Ce sont les paramètres de la fonction. ici il y en a un.
+  - `:` : Le deux-points (:) indique la fin de l'en-tête de la fonction et le début du corps de la fonction.
+  - Attention, en Python, il n'y a pas d'accolades : le code doit être indenté.
+  - Réutilisabilité, Lisibilité, Modularité.
+
+- **in** L'opérateur in en Python permet de tester rapidement et facilement si une valeur est contenue dans une collection, comme une liste, un ensemble, ou un tuple. Cette méthode est efficace pour effectuer des recherches dans des collections de données.
+
+  ```python
+  # Définir un ensemble de types acceptés
+  types_acceptes = {"list", "tuple", "set", "dict"}
+
+  # Exemple de variable contenant le nom d'un type
+  nom = "dict"
+
+  # Vérifier si `nom` est dans l'ensemble `types_acceptes`
+  if nom in types_acceptes:
+      print(f"{nom} est dans l'ensemble.")
+  else:
+      print(f"{nom} n'est pas dans l'ensemble.")
+  ```
+
 ## Starting
 
 ### Exercice 0 : First python script
@@ -114,4 +152,59 @@ python3.10 "path"Hello.py
 
 ```bash
 python3.10 "path"format_ft_time.py
+```
+
+### Exercice 2 : First function python
+
+**Objectif :**Écrivez une fonction qui affiche les types des objets et retourne 42.
+</br>Voici comment elle devrait être prototypée:
+
+```python
+def all_thing_is_obj(object: any) -> int:
+#your code here
+```
+
+Le testeur:
+
+```python
+from find_ft_type import all_thing_is_obj
+ft_list = ["Hello", "tata!"]
+ft_tuple = ("Hello", "toto!")
+ft_set = {"Hello", "tutu!"}
+ft_dict = {"Hello" : "titi!"}
+all_thing_is_obj(ft_list)
+all_thing_is_obj(ft_tuple)
+all_thing_is_obj(ft_set)
+all_thing_is_obj(ft_dict)
+all_thing_is_obj("Brian")
+all_thing_is_obj("Toto")
+print(all_thing_is_obj(10))
+```
+
+Résultat attendu:
+
+```bash
+$>python tester.py | cat -e
+List : <class 'list'>$
+Tuple : <class 'tuple'>$
+Set : <class 'set'>$
+Dict : <class 'dict'>$
+Brian is in the kitchen : <class 'str'>$
+Toto is in the kitchen : <class 'str'>$
+Type not found$
+42$
+$>
+```
+
+Exécuter votre fonction seule ne doit rien faire.
+
+```bash
+$>python find_ft_type.py | cat -e
+$>
+```
+
+### Execute code
+
+```bash
+python3.10 "path"tester.py "path"find_ft_type.py
 ```
