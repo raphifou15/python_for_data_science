@@ -3,13 +3,28 @@
 ## Table des Matières
 
 1. [Introduction](#introduction)
-2. [Syntaxe de Base](#syntaxe-de-base)
-   - [Liste](#liste)
-   - [Tuple](#tuple)
-3. [Starting](#starting)
-   - [Exercice 0 : First python script](#exercice-0--first-python-script)
-   - [Exercice 1 : First use of package](#exercice-1--first-use-of-package)
-   - [Exercice 2 : First use of package](#exercice-2--first-function-python)
+
+<details>
+  <summary>2. <a href="#syntaxe-de-base">Syntaxe de Base</a></summary>
+
+- [Liste](#liste)
+- [Tuple](#tuple)
+- [Set](#set)
+- [Les dictionnaires](#les-dictionnaires)
+- [Import](#import)
+- [def](#def)
+- [in](#in)
+
+</details>
+
+<details>
+
+<summary>3. <a href="starting">Starting</a></summary>
+
+- [Exercice 0 : First python script](#exercice-0--first-python-script)
+- [Exercice 1 : First use of package](#exercice-1--first-use-of-package)
+- [Exercice 2 : First use of package](#exercice-2--first-function-python)
+</details>
 
 ## Introduction
 
@@ -34,6 +49,9 @@
   # Tuple mixte
   mixte = (1, "texte", 3.14, True)
   ```
+
+### Set
+
 - **Set** : Ce sont des collections non ordonnées d'éléments uniques. Les doublons sont automatiquement supprimés.
 
   ```python
@@ -46,6 +64,8 @@
   # Set vide
   vide = set()
   ```
+
+### Les dictionnaires
 
 - **Les dictionnaires** : Ce sont des structures de données qui permettent de stocker des paires clé-valeur. Chaque clef dans un dictionnaire doit être unique et immuable.
   Les valeurs peuvent être de n'importe quel type et peuvent se répéter.
@@ -60,6 +80,8 @@
      "profession": "Ingénieur"
   }
   ```
+
+### Import
 
 - **Import** est un mot clef utilisé pour inclure des modules ou des bibliothèques externes dans un script.(L'objectif principal de import est de rendre disponible dans un script les fonctions, classes, et variables définies dans d'autres modules ou bibliothèques.)
 
@@ -81,6 +103,8 @@
   import numpy as np
   ```
 
+### def
+
 - **def** Ce mot clef indique à Python que vous définissez une nouvelle fonction.
 
   ```python
@@ -95,6 +119,8 @@
   - `:` : Le deux-points (:) indique la fin de l'en-tête de la fonction et le début du corps de la fonction.
   - Attention, en Python, il n'y a pas d'accolades : le code doit être indenté.
   - Réutilisabilité, Lisibilité, Modularité.
+
+### in
 
 - **in** L'opérateur in en Python permet de tester rapidement et facilement si une valeur est contenue dans une collection, comme une liste, un ensemble, ou un tuple. Cette méthode est efficace pour effectuer des recherches dans des collections de données.
 
@@ -207,4 +233,52 @@ $>
 
 ```bash
 python3.10 "path"tester.py "path"find_ft_type.py
+```
+
+### Exercice 3 : NULL not found
+
+**Objectif :**Écrire une fonction qui affiche le type d'objet de tous les types de "Null". Retourner 0 si tout se passe correctement, ou 1 en cas d'erreur. Votre fonction doit afficher tous les types de "Null".
+</br>Voici comment elle devrait être prototypée:
+
+```python
+def NULL_not_found(object: any) -> int:
+#your code here
+```
+
+Le testeur:
+
+```python
+from NULL_not_found import NULL_not_found
+Nothing = None
+Garlic = float("NaN")
+Zero = 0
+Empty = ''
+Fake = False
+NULL_not_found(Nothing)
+NULL_not_found(Garlic)
+NULL_not_found(Zero)
+NULL_not_found(Empty)
+NULL_not_found(Fake)
+print(NULL_not_found("Brian"))
+```
+
+Résultat attendu:
+
+```bash
+$>python tester.py | cat -e
+Nothing: None <class 'NoneType'>$
+Cheese: nan <class 'float'>$
+Zero: 0 <class 'int'>$
+Empty: <class 'str'>$
+Fake: False <class 'bool'>$
+Type not Found$
+1$
+$>
+```
+
+Exécuter votre fonction seule ne doit rien faire.
+
+```bash
+$>python NULL_not_found.py | cat -e
+$>
 ```
