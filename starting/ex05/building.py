@@ -3,10 +3,18 @@ import sys
 
 def get_input():
     """
-    Reads the user's input until Enter or Ctrl+D is pressed.
+    Demande à l'utilisateur d'entrer un texte via l'entrée standard.
 
-    Return :
-       Str: The text entered by the user, with newlines added after each input.
+    Cette fonction affiche un message demandant à l'utilisateur de saisir un
+    texte. Elle lit ensuite l'entrée de l'utilisateur
+    depuis l'entrée standard (par exemple, le terminal) et retourne ce texte.
+    Si l'utilisateur interrompt l'entrée avec
+    `Ctrl+D` (EOFError) ou `Ctrl+C` (KeyboardInterrupt), la fonction gère ces
+    exceptions de manière appropriée.
+
+    Returns:
+        str: Le texte entré par l'utilisateur. Si une interruption se produit,
+        la fonction retourne une chaîne vide.
     """
     try:
         print("What is the text to count?")
@@ -21,11 +29,29 @@ def get_input():
 
 def calculation_string(str_to_count: str):
     """
-    Counts the number of upper, lower, punctuation, space, digit, and total
-    characters and displays them.
+    Analyse une chaîne de caractères et compte différents types de caractères.
 
-    Return :
-        Void: This function does not return anything.
+    Cette fonction prend une chaîne de caractères en entrée et compte le
+    nombre de majuscules, minuscules,
+    signes de ponctuation, chiffres, et espaces. Elle affiche ensuite un
+    résumé détaillé des résultats,
+    incluant le nombre total de caractères.
+
+    Args:
+        str_to_count (str): La chaîne de caractères à analyser.
+
+    Prints:
+        Résumé du nombre de chaque type de caractère dans la chaîne, incluant :
+        - Nombre total de caractères.
+        - Nombre de lettres majuscules.
+        - Nombre de lettres minuscules.
+        - Nombre de signes de ponctuation.
+        - Nombre d'espaces.
+        - Nombre de chiffres.
+
+    Returns:
+        None: La fonction ne retourne aucune valeur, elle se contente
+        d'afficher les résultats.
     """
     punctuations_chars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~"
     punctuations_tab = [char for char in punctuations_chars]
@@ -58,25 +84,24 @@ def calculation_string(str_to_count: str):
 
 def main():
     """
-    Starting function that processes command-line arguments or prompts the
-    user for input,
-    then calculates and displays the number of different types of characters.
+    Point d'entrée principal du programme.
 
-    This function performs the following steps:
-    1. Checks if more than one command-line argument is provided and raises an
-    assertion error if true.
-    2. If a single command-line argument is provided, it uses that as the
-    string to be processed.
-    3. If no command-line argument is provided, it prompts the user to input a
-    string.
-    4. Passes the obtained string to the `calculation_string` function to
-    count and display the characters.
+    Cette fonction vérifie les arguments de la ligne de commande pour
+    s'assurer qu'au plus un argument est fourni.
+    Si un argument est fourni, il est utilisé comme texte à analyser. Sinon,
+    la fonction demande à l'utilisateur
+    d'entrer un texte via l'entrée standard. Le texte est ensuite analysé pour
+    compter le nombre de majuscules,
+    minuscules, signes de ponctuation, chiffres, et espaces, en utilisant la
+    fonction `calculation_string`.
 
-    Raises:
-        AssertionError: If more than one command-line argument is provided.
+    Exceptions:
+        AssertionError: Lancée si plus d'un argument est fourni via la ligne
+        de commande.
 
     Returns:
-        None: This function does not return anything.
+        None: La fonction ne retourne aucune valeur, elle exécute simplement
+        la logique du programme.
     """
     try:
         assert len(sys.argv) <= 2, "more than one argument is provided"

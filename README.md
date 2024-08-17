@@ -24,6 +24,11 @@
 - [Exercice 0 : First python script](#exercice-0--first-python-script)
 - [Exercice 1 : First use of package](#exercice-1--first-use-of-package)
 - [Exercice 2 : First use of package](#exercice-2--first-function-python)
+- [Exercice 3 : NULL not found](#exercice-3--null-not-found)
+- [Exercice 4 : The Even and the Odd](#exercice-4--the-even-and-the-odd)
+- [Exercice 5 : First standalone program python](#exercice-5--first-standalone-program-python)
+- [Exercice 6 : Filter](#exercice-6--filter)
+- [Exercice 7 : Dictionaries SoS](#exercice-7--dictionaries-sos)
 </details>
 
 ## Introduction
@@ -222,13 +227,6 @@ Type not found$
 $>
 ```
 
-Exécuter votre fonction seule ne doit rien faire.
-
-```bash
-$>python find_ft_type.py | cat -e
-$>
-```
-
 ### Execute code
 
 ```bash
@@ -276,9 +274,104 @@ Type not Found$
 $>
 ```
 
-Exécuter votre fonction seule ne doit rien faire.
+### Exercice 4 : The Even and the Odd
+
+**Objectif :**Créez un script qui prend un nombre en argument, vérifie s'il est impair ou pair, et affiche le résultat.
+Si plus d'un argument est fourni ou si l'argument n'est pas un entier, affichez une AssertionError.
+<br/>Résultat attendu:
 
 ```bash
-$>python NULL_not_found.py | cat -e
+$> python whatis.py 14
+I'm Even.
+$>
+$> python whatis.py -5
+I'm Odd.
+$>
+$> python whatis.py
+$>
+$> python whatis.py 0
+I'm Even.
+$>
+$> python whatis.py Hi!
+AssertionError: argument is not an integer
+$>
+$> python whatis.py 13 5
+AssertionError: more than one argument is provided
+$>
+```
+
+### Exercice 5 : First standalone program python
+
+**Objectif :** Cette fois, vous devez créer un véritable programme autonome, avec une fonction main, qui prend un seul argument de type chaîne de caractères et affiche les sommes de ses caractères majuscules, minuscules, signes de ponctuation, chiffres et espaces.
+
+- Si None ou rien n'est fourni, l'utilisateur est invité à fournir une chaîne de caractères.
+- Si plus d'un argument est fourni au programme, afficher une AssertionError.
+  <br/>Résultat attendu:
+
+```bash
+$>python building.py "Python 3.0, released in 2008, was a major revision that is not completely backwardcompatible with earlier versions. Python 2 was discontinued with version 2.7.18 in 2020."
+The text contains 171 characters:
+2 upper letters
+121 lower letters
+8 punctuation marks
+25 spaces
+15 digits
+$>
+```
+
+### Exercice 6 : Filter
+
+Partie 1 : Recoder la fonction filter
+
+Recoder votre propre fonction ft_filter ; elle doit se comporter comme la fonction intégrée originale (elle doit retourner la même chose que ce que renvoie print(filter.**doc**)). Vous devez utiliser des compréhensions de liste pour recoder votre ft_filter.
+
+Partie 2 : Le programme
+Créez un programme qui accepte deux arguments : une chaîne de caractères (S) et un entier (N). Le programme doit afficher une liste de mots extraits de S qui ont une longueur supérieure à N.
+
+- Les mots sont séparés les uns des autres par des espaces.
+- Les chaînes ne contiennent aucun caractère spécial (ponctuation ou caractères invisibles).
+- Le programme doit contenir au moins une expression de compréhension de liste et une fonction lambda.
+- Si le nombre d'arguments est différent de 2, ou si le type de l'un des arguments est incorrect, le programme affiche une erreur d'assertion (AssertionError).
+  <br/>Résultat attendu:
+
+```bash
+$> python filterstring.py 'Hello the World' 4
+['Hello', 'World']
+$>
+$> python filterstring.py 'Hello the World' 99
+[]
+$>
+$> python filterstring.py 3 'Hello the World'
+AssertionError: the arguments are bad
+$>
+$> python filterstring.py
+AssertionError: the arguments are bad
+$>
+
+```
+
+### Exercice 7 : Dictionaries SoS
+
+Créez un programme qui prend une chaîne de caractères en argument et la code en code Morse.
+
+- Le programme doit supporter les espaces et les caractères alphanumériques.
+- Un caractère alphanumérique est représenté par des points . et des tirets -.
+- Les caractères Morse complets sont séparés par un seul espace.
+- Un caractère espace est représenté par une barre oblique /.
+- Vous devez utiliser un dictionnaire pour stocker votre code Morse.
+
+```python
+NESTED_MORSE = { " ": "/ ",
+"A": ".- ",
+...
+```
+
+Si le nombre d'arguments est différent de 1, ou si le type de l'un des arguments est incorrect, le programme affiche une AssertionError.
+
+```bash
+$> python sos.py "sos" | cat -e
+... --- ...$
+$> python sos.py 'h$llo'
+AssertionError: the arguments are bad
 $>
 ```
