@@ -43,17 +43,21 @@ NESTED_MORSE = {
 
 def is_alpha_or_space(val: str):
     """
-    Check if all characters in the input string are either alphabetic or whitespace.
+    Check if all characters in the input string are either alphabetic or
+    whitespace.
 
-    This function iterates through each character in the input string `val`. It returns `True` if every character
-    in the string is either an alphabetic character (a-z, A-Z) or a whitespace character (e.g., spaces, tabs).
+    This function iterates through each character in the input string `val`.
+    It returns `True` if every character
+    in the string is either an alphabetic character (a-z, A-Z) or a whitespace
+    character (e.g., spaces, tabs).
     If any character is not alphabetic or whitespace, it returns `False`.
 
     Args:
         val (str): The string to be checked.
 
     Returns:
-        bool: `True` if all characters in the string are alphabetic or whitespace; `False` otherwise.
+        bool: `True` if all characters in the string are alphabetic or
+        whitespace; `False` otherwise.
 
     Example:
         >>> is_alpha_or_space("Hello World")
