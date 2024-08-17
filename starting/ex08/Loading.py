@@ -5,6 +5,29 @@ import sys
 
 
 def ft_tdqm(lst: range):
+    """
+    A generator function that iterates over a range and displays a progress
+    bar.
+
+    This function yields elements from the provided range `lst`, while
+    displaying a progress bar
+    in the console. The progress bar shows the percentage of completion, a
+    visual bar that fills up
+    as progress increases, and the current count of processed items out of the
+    total.
+
+    Args:
+        lst (range): A range object representing the sequence of items to
+        iterate over.
+
+    Yields:
+        element: Each element in the range `lst`.
+
+    Example:
+        >>> for item in ft_tdqm(range(100)):
+        >>>     # Process item
+        # Output: A progress bar showing completion percentage and progress
+    """
     print("")
     sizeLst = len(lst)
     bar = " " * 50

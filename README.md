@@ -29,6 +29,8 @@
 - [Exercice 5 : First standalone program python](#exercice-5--first-standalone-program-python)
 - [Exercice 6 : Filter](#exercice-6--filter)
 - [Exercice 7 : Dictionaries SoS](#exercice-7--dictionaries-sos)
+- [Exercice 8 : Loading](#exercice-8--loading)
+- [Exercice 9 : My first package creation](#exercice-9--my-first-package-creation)
 </details>
 
 ## Introduction
@@ -375,3 +377,37 @@ $> python sos.py 'h$llo'
 AssertionError: the arguments are bad
 $>
 ```
+
+### Exercice 8 : Loading
+
+Alors, créons une fonction appelée ft_tqdm.
+La fonction doit copier la fonction tqdm en utilisant l'opérateur yield
+</br>Voici comment elle devrait être prototypée:
+
+```python
+def ft_tqdm(lst: range) -> None:
+```
+
+tester.py
+
+```python
+from time import sleep
+from tqdm import tqdm
+from Loading import ft_tqdm
+for elem in ft_tqdm(range(333)):
+sleep(0.005)
+print()
+for elem in tqdm(range(333)):
+sleep(0.005)
+print()
+```
+
+Résultat attendu : (vous devez avoir une fonction aussi proche que possible de la version originale)
+
+```bash
+$> python tester.py
+100%|[===============================================================>]| 333/333
+100%| | 333/333 [00:01<00:00, 191.61it/s]
+```
+
+### Exercice 9 : My first package creation
