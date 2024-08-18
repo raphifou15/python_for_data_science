@@ -411,3 +411,37 @@ $> python tester.py
 ```
 
 ### Exercice 9 : My first package creation
+
+Créez votre premier package en Python de la manière que vous souhaitez. Il apparaîtra dans la liste des packages installés lorsque vous tapez la commande pip list et affichera ses caractéristiques lorsque vous tapez pip show -v ft_package.
+
+```bash
+$>pip show -v ft_package
+Name: ft_package
+Version: 0.0.1
+Summary: A sample test package
+Home-page: https://github.com/eagle/ft_package
+Author: eagle
+Author-email: eagle@42.fr
+License: MIT
+Location: /home/eagle/...
+Requires:
+Required-by:
+Metadata-Version: 2.1
+Installer: pip
+Classifiers:
+Entry-points:
+$>
+```
+
+Le package sera installé via pip en utilisant l'une des commandes suivantes (les deux doivent fonctionner) :
+
+- pip install ./dist/ft_package-0.0.1.tar.gz
+- pip install ./dist/ft_package-0.0.1-py3-none-any.whl
+
+<br/>Votre package doit pouvoir être appelé depuis un script comme celui-ci :
+
+```bash
+from ft_package import count_in_list
+print(count_in_list(["toto", "tata", "toto"], "toto")) # output: 2
+print(count_in_list(["toto", "tata", "toto"], "tutu")) # output: 0
+```
