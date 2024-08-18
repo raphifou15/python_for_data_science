@@ -19,7 +19,7 @@
 
 <details>
 
-<summary>3. <a href="starting">Starting</a></summary>
+<summary>3. <a href="#starting">Starting</a></summary>
 
 - [Exercice 0 : First python script](#exercice-0--first-python-script)
 - [Exercice 1 : First use of package](#exercice-1--first-use-of-package)
@@ -31,6 +31,13 @@
 - [Exercice 7 : Dictionaries SoS](#exercice-7--dictionaries-sos)
 - [Exercice 8 : Loading](#exercice-8--loading)
 - [Exercice 9 : My first package creation](#exercice-9--my-first-package-creation)
+</details>
+
+<details>
+
+<summary>3. <a href="#array">Array</a></summary>
+
+- [Exercice 0 : Give my BMI](#exercice-0--give-my-bmi)
 </details>
 
 ## Introduction
@@ -444,4 +451,42 @@ Le package sera installé via pip en utilisant l'une des commandes suivantes (le
 from ft_package import count_in_list
 print(count_in_list(["toto", "tata", "toto"], "toto")) # output: 2
 print(count_in_list(["toto", "tata", "toto"], "tutu")) # output: 0
+```
+
+## Array
+
+### Exercice 0 : Give my BMI
+
+**Objectif :** Votre fonction, give_bmi, prend en entrée 2 listes d'entiers ou de nombres à virgule flottante et renvoie une liste de valeurs de l'IMC (Indice de Masse Corporelle).
+
+Votre fonction, apply_limit, accepte une liste d'entiers ou de nombres à virgule flottante et un entier représentant une limite comme paramètres. Elle renvoie une liste de booléens (True si le nombre dépasse la limite).
+
+Vous devez gérer les cas d'erreur si les listes ne sont pas de la même taille, ne contiennent pas des entiers ou des nombres à virgule flottante, etc.
+</br>Voici comment elle devrait être prototypée:
+
+```python
+def give_bmi(height: list[int | float], weight: list[int | float]) -> list[int | float]:
+#your code here
+def apply_limit(bmi: list[int | float], limit: int) -> list[bool]:
+#your code here
+```
+
+testeur :
+
+```python
+from give_bmi import give_bmi, apply_limit
+height = [2.71, 1.15]
+weight = [165.3, 38.4]
+bmi = give_bmi(height, weight)
+print(bmi, type(bmi))
+print(apply_limit(bmi, 26))
+```
+
+Résultat attendu :
+
+```bash
+$> python tester.py
+[22.507863455018317, 29.0359168241966] <class 'list'>
+[False, True]
+$>
 ```
