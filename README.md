@@ -38,6 +38,7 @@
 <summary>3. <a href="#array">Array</a></summary>
 
 - [Exercice 0 : Give my BMI](#exercice-0--give-my-bmi)
+- [Exercice 1 : 2D array](#exercice-1--2d-array)
 </details>
 
 ## Introduction
@@ -488,5 +489,42 @@ Résultat attendu :
 $> python tester.py
 [22.507863455018317, 29.0359168241966] <class 'list'>
 [False, True]
+$>
+```
+
+### Exercice 1 : 2D array
+
+**Objectif :** Écrivez une fonction qui prend en paramètres un tableau 2D, affiche sa forme, et retourne une version tronquée du tableau en fonction des arguments de début et de fin fournis.
+Vous devez utiliser la méthode de découpage (slicing).
+Vous devez gérer les cas d'erreur si les listes ne sont pas de la même taille, ne sont pas une liste...
+</br>Voici comment elle devrait être prototypée:
+
+```python
+def slice_me(family: list, start: int, end: int) -> list:
+#your code here
+```
+
+testeur :
+
+```python
+from array2D import slice_me
+family = [[1.80, 78.4],
+[2.15, 102.7],
+[2.10, 98.5],
+[1.88, 75.2]]
+print(slice_me(family, 0, 2))
+print(slice_me(family, 1, -2))
+```
+
+Résultat attendu :
+
+```bash
+$> python test_array2D.py
+My shape is : (4, 2)
+My new shape is : (2, 2)
+[[1.8, 78.4], [2.15, 102.7]]
+My shape is : (4, 2)
+My new shape is : (1, 2)
+[[2.15, 102.7]]
 $>
 ```
