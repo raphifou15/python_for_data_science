@@ -39,6 +39,8 @@
 
 - [Exercice 0 : Give my BMI](#exercice-0--give-my-bmi)
 - [Exercice 1 : 2D array](#exercice-1--2d-array)
+- [Exercice 2 : load my image](#exercice-2--load-my-image)
+- [Exercice 3 : zoom on me](#exercice-3--zoom-on-me)
 </details>
 
 ## Introduction
@@ -526,5 +528,71 @@ My new shape is : (2, 2)
 My shape is : (4, 2)
 My new shape is : (1, 2)
 [[2.15, 102.7]]
+$>
+```
+
+### Exercice 2 : load my image
+
+**Objectif :** Vous devez écrire une fonction qui charge une image, affiche son format et son contenu en pixels au format RGB.
+Vous devez gérer, au moins, les formats JPG et JPEG.
+Vous devez gérer toute erreur avec un message d'erreur clair.
+</br>Voici comment elle devrait être prototypée:
+
+```python
+def ft_load(path: str) -> array: (you can return to the desired format)
+#your code here
+```
+
+testeur :
+
+```python
+from load_image import ft_load
+print(ft_load("landscape.jpg"))
+```
+
+Résultat attendu :
+
+```bash
+$> python tester.py
+The shape of image is: (257, 450, 3)
+[[[19 42 83]
+[23 42 84]
+[28 43 84]
+...
+[ 0 0 0]
+[ 1 1 1]
+[ 1 1 1]]]
+$>
+```
+
+### Exercice 3 : zoom on me
+
+**Objectif :** Créez un programme qui doit charger l'image "animal.jpeg", afficher certaines informations à son sujet et la montrer après l'avoir "agrandie".
+• La taille en pixels sur les axes X et Y
+• Le nombre de canaux
+• Le contenu des pixels de l'image
+• Afficher l'échelle sur les axes X et Y de l'image
+Si quelque chose ne va pas, le programme ne doit pas s'arrêter brutalement et doit gérer toute erreur avec un message clair.
+
+Résultat attendu :
+
+```bash
+$> python zoom.py
+The shape of image is: (768, 1024, 3)
+[[[120 111 132]
+[139 130 151]
+[155 146 167]
+...
+[120 156 94]
+[119 154 90]
+[118 153 89]]]
+New shape after slicing: (400, 400, 1) or (400, 400)
+[[[167]
+[180]
+[194]
+...
+[102]
+[104]
+[103]]]
 $>
 ```
