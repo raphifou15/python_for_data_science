@@ -41,6 +41,8 @@
 - [Exercice 1 : 2D array](#exercice-1--2d-array)
 - [Exercice 2 : load my image](#exercice-2--load-my-image)
 - [Exercice 3 : zoom on me](#exercice-3--zoom-on-me)
+- [Exercice 4 : rotate me](#exercice-4--rotate-me)
+- [Exercice 5 : Pimp my image](#exercice-5--pimp-my-image)
 </details>
 
 ## Introduction
@@ -594,5 +596,86 @@ New shape after slicing: (400, 400, 1) or (400, 400)
 [102]
 [104]
 [103]]]
+$>
+```
+
+### Exercice 4 : rotate me
+
+**Objectif :** Créez un programme qui doit charger l'image "animal.jpeg", découper une partie carrée de celle-ci, puis la transposer pour produire l'image ci-dessous. Le programme doit l'afficher, imprimer la nouvelle forme et les données de l'image après la transposition.
+
+</br>Résultat attendu :
+
+```bash
+$> python rotate.py
+The shape of image is: (400, 400, 1) or (400, 400)
+[[[167]
+[180]
+[194]
+...
+[102]
+[104]
+[103]]]
+New shape after Transpose: (400, 400)
+[[167 180 194 ... 64 50 72]
+...
+[115 116 119 ... 102 104 103]]
+$>
+```
+
+### Exercice 5 : Pimp my image
+
+**Objectif** Tu dois développer 5 fonctions capables d'appliquer une variété de filtres de couleur aux images, tout en conservant la même forme pour l'image.
+
+</br>Voici comment elles devraient être prototypée:
+
+```python
+def ft_invert(array) -> array:
+#your code here
+def ft_red(array) -> array:
+#your code here
+def ft_green(array) -> array:
+#your code here
+def ft_blue(array) -> array:
+#your code here
+def ft_grey(array)
+```
+
+Vous avez des opérateurs de restriction pour chaque fonction : (vous ne pouvez utiliser que ceux donnés, vous n'êtes pas obligé de tous les utiliser)
+
+- invert : =, +, -, \*
+- red : =, \*
+- green : =, -
+- blue : =
+- grey : =, /"
+
+testeur :
+
+```bash
+from load_image import ft_load
+from pimp_image import ft_invert
+...
+array = ft_load("landscape.jpg")
+ft_invert(array)
+ft_red(array)
+ft_green(array)
+ft_blue(array)
+ft_grey(array)
+print(ft_invert.__doc__)
+```
+
+</br>Résultat attendu :
+
+```bash
+$> python tester.py
+The shape of image is: (257, 450, 3)
+[[[19 42 83]
+[23 42 84]
+[28 43 84]
+...
+[ 0 0 0]
+[ 1 1 1]
+[ 1 1 1]]]
+...
+Inverts the color of the image received.
 $>
 ```
