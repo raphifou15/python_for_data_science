@@ -727,3 +727,9 @@ $>
 ### Exercice 2: Compare my country
 
 **Objectif** Créez un programme qui appelle la fonction de chargement du premier exercice, charge le fichier population_total.csv, et affiche les informations sur le pays de votre campus par rapport à un autre pays de votre choix. Votre graphique doit avoir un titre, une légende pour chaque axe et une légende pour chaque courbe. Vous devez afficher les années de 1800 à 2050.
+
+### Exercice 03: Draw my year
+
+**Objectif** Créez un programme qui appelle la fonction de chargement du premier exercice, charge les fichiers income_per_person_gdppercapita_ppp_inflation_adjusted.csv et life_expectancy_years.csv, et affiche la projection de l'espérance de vie en relation avec le produit national brut de l'année 1900 pour chaque pays.
+Votre graphique doit avoir un titre, une légende pour chaque axe, et une légende pour chaque courbe.
+Vous devez afficher l'année 1900.

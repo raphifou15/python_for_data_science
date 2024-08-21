@@ -4,11 +4,6 @@ import pandas as pd
 
 
 def load_csv_dataset(path: str):
-    """
-    Load a csv file and return a pandas dataframe
-    :param path: str
-    :return: pd.DataFrame
-    """
     if not path.endswith(".csv"):
         raise ValueError("Invalid file extension")
     if not os.path.isfile(path):
@@ -24,12 +19,7 @@ def load_csv_dataset(path: str):
         raise error
 
 
-def load(path: str):
-    """
-    Load a csv file and return a pandas dataframe
-    :param path: str
-    :return: pd.DataFrame
-    """
+def load(path: str):  # -> Dataset
     try:
         data = load_csv_dataset(path)
         print("loading dataset of dimensions {}".format(data.shape))
@@ -37,12 +27,3 @@ def load(path: str):
     except Exception as error:
         print(error)
         return
-
-
-def main():
-    print(load("life_expectancy_years.csv"))
-    return
-
-
-if __name__ == "__main__":
-    main()
