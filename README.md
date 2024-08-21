@@ -54,6 +54,13 @@
 - [Exercice 2: Compare my country](#exercice-2-compare-my-country)
 </details>
 
+<details>
+
+<summary>6. <a href="#oop">OOP</a></summary>
+- [Exercice 0 : GOT S1E9](#exercice-0--got-s1e9)
+
+</details>
+
 ## Introduction
 
 - Bienvenue dans mon guide d'apprentissage de python_for_data_science. Ce document est destiné à capturer tout ce que j'apprends sur Python.
@@ -733,3 +740,67 @@ $>
 **Objectif** Créez un programme qui appelle la fonction de chargement du premier exercice, charge les fichiers income_per_person_gdppercapita_ppp_inflation_adjusted.csv et life_expectancy_years.csv, et affiche la projection de l'espérance de vie en relation avec le produit national brut de l'année 1900 pour chaque pays.
 Votre graphique doit avoir un titre, une légende pour chaque axe, et une légende pour chaque courbe.
 Vous devez afficher l'année 1900.
+
+## OOP
+
+### Exercice 0 : GOT S1E9
+
+**Objectif** Créez une classe abstraite Character qui peut prendre un first_name comme premier paramètre, is_alive comme deuxième paramètre non obligatoire, par défaut à True, et qui peut changer l'état de santé du personnage avec une méthode qui passe is_alive de True à False.
+
+Et une classe Stark qui hérite de Character.
+</br>Voici comment elle devrait être prototypée:
+
+```python
+from abc import ABC, abstractmethod
+class Character(ABC):
+"""Your docstring for Class"""
+@abstractmethod
+#your code here
+class Stark(Character):
+"""Your docstring for C
+```
+
+testeur :
+
+```python
+from S1E9 import Character, Stark
+Ned = Stark("Ned")
+print(Ned.__dict__)
+print(Ned.is_alive)
+Ned.die()
+print(Ned.is_alive)
+print(Ned.__doc__)
+print(Ned.__init__.__doc__)
+print(Ned.die.__doc__)
+print("---")
+Lyanna = Stark("Lyanna", False)
+print(Lyanna.__dict__)
+```
+
+</br>Résultat attendu :
+
+```bash
+$> python tester.py
+{'first_name': 'Ned', 'is_alive': True}
+True
+False
+Your docstring for Class
+Your docstring for Constructor
+Your docstring for Method
+---
+{'first_name': 'Lyanna', 'is_alive': False}
+$>
+```
+
+testeur :
+
+```python
+from S1E9 import Character
+hodor = Character("hodor")
+```
+
+</br>Résultat attendu :
+
+```bash
+TypeError: Can't instantiate abstract class Character with abstract method
+```
