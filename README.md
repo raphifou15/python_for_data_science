@@ -35,7 +35,7 @@
 
 <details>
 
-<summary>3. <a href="#array">Array</a></summary>
+<summary>4. <a href="#array">Array</a></summary>
 
 - [Exercice 0 : Give my BMI](#exercice-0--give-my-bmi)
 - [Exercice 1 : 2D array](#exercice-1--2d-array)
@@ -43,6 +43,15 @@
 - [Exercice 3 : zoom on me](#exercice-3--zoom-on-me)
 - [Exercice 4 : rotate me](#exercice-4--rotate-me)
 - [Exercice 5 : Pimp my image](#exercice-5--pimp-my-image)
+</details>
+
+<details>
+
+<summary>5. <a href="#datatable">DataTable</a></summary>
+
+- [Exercice 0 : Load my Dataset](#exercice-0--load-my-dataset)
+- [Exercice 1 : Draw my country](#exercice-1--draw-my-country)
+- [Exercice 2: Compare my country](#exercice-2-compare-my-country)
 </details>
 
 ## Introduction
@@ -679,3 +688,42 @@ The shape of image is: (257, 450, 3)
 Inverts the color of the image received.
 $>
 ```
+
+## DataTable
+
+### Exercice 0 : Load my Dataset
+
+**Objectif** Créez une fonction qui prend un chemin en argument, écrit les dimensions de l'ensemble de données et les renvoie. Vous devez gérer les cas d'erreur et retourner None si le chemin est incorrect ou si le format est incorrect...
+
+</br>Voici comment elle devrait être prototypée:
+
+```python
+def load(path: str) -> Dataset: (You have to adapt the type of return according to your library)
+#your code here
+```
+
+testeur :
+
+```python
+from load_csv import load
+print(load("life_expectancy_years.csv"))
+```
+
+</br>Résultat attendu :
+
+```bash
+$> python tester.py
+Loading dataset of dimensions (195, 302)
+country 1800 1801 1802 1803 ... 2096 2097 2098 2099 2100
+Afghanistan 28.2 28.2 28.2 28.2 ... 76.2 76.4 76.5 76.6 76.8
+...
+$>
+```
+
+### Exercice 1 : Draw my country
+
+**Objectif** Créez un programme qui appelle la fonction de chargement de l'exercice précédent, charge le fichier life_expectancy_years.csv, et affiche les informations du pays de votre campus. Votre graphique doit avoir un titre et une légende pour chaque axe.
+
+### Exercice 2: Compare my country
+
+**Objectif** Créez un programme qui appelle la fonction de chargement du premier exercice, charge le fichier population_total.csv, et affiche les informations sur le pays de votre campus par rapport à un autre pays de votre choix. Votre graphique doit avoir un titre, une légende pour chaque axe et une légende pour chaque courbe. Vous devez afficher les années de 1800 à 2050.
