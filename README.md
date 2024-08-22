@@ -67,6 +67,16 @@
 - [Exercice 4 : Calculate my dot product](#exercice-4--calculate-my-dot-product)
 
 </details>
+<details>
+
+<summary>7. <a href="#data-oriented-design">Data Oriented Design</a></summary>
+
+- [Exercice 0 - Calculate my statistics](#exercice-0---calculate-my-statistics)
+- [Exercice 1 - Outer inner](#exercice-1---outer-inner)
+- [Exercice 2 - my first decorating](#exercice-2---my-first-decorating)
+- [Exercice 3 - data class](#exercice-3---data-class)
+
+</details>
 
 ## Introduction
 
@@ -992,5 +1002,136 @@ $> python tester.py
 Dot product is: 56
 Add Vector is : [7.0, 14.0, 5.0]
 Sous Vector is: [3.0, 6.0, -1.0]
+$>
+```
+
+## Data Oriented Design
+
+### Exercice 0 - Calculate my statisticss
+
+**Objectif** Vous devez prendre en entrée un nombre indéfini d'arguments via \*args et calculer la Moyenne, la Médiane, les Quartiles (25 % et 75 %), l'Écart-type et la Variance en fonction des demandes spécifiées via \*\*kwargs. Vous devez gérer les erreurs.
+
+```python
+def ft_statistics(*args: Any, **kwargs: Any) -> None:
+#your code here
+```
+
+testeur :
+
+```python
+from statistics import ft_statistics
+ft_statistics(1, 42, 360, 11, 64, toto="mean", tutu="median", tata="quartile")
+print("-----")
+ft_statistics(5, 75, 450, 18, 597, 27474, 48575, hello="std", world="var")
+print("-----")
+ft_statistics(5, 75, 450, 18, 597, 27474, 48575, ejfhhe="heheh", ejdjdejn="kdekem")
+print("-----")
+ft_statistics(toto="mean", tutu="median", tata="quartile")
+```
+
+</br>Résultat attendu :
+
+```bash
+$> python tester.py
+mean : 95.6
+median : 42
+quartile : [11.0, 64.0]
+-----
+std : 17982.70124086944
+var : 323377543.9183673
+-----
+-----
+ERROR
+ERROR
+ERROR
+$>
+```
+
+### Exercice 1 - Outer inner
+
+**Objectif** Écrivez une fonction qui retourne le carré de l'argument, une fonction qui retourne l'exponentiation de l'argument par lui-même, et une fonction qui prend en argument un nombre et une fonction ; elle retourne un objet qui, lorsqu'il est appelé, retourne le résultat du calcul des arguments
+
+</br>Le prototype des fonctions est
+
+```python
+def square(x: int | float) -> int | float:
+#your code here
+def pow(x: int | float) -> int | float:
+#your code here
+def outer(x: int | float, function) -> object:
+count = 0
+def inner() -> float:
+#your code here
+```
+
+testeur :
+
+```python
+from in_out import outer
+from in_out import square
+from in_out import pow
+my_counter = outer(3, square)
+print(my_counter())
+print(my_counter())
+print(my_counter())
+print("---")
+another_counter = outer(1.5, pow)
+print(another_counter())
+print(another_counter())
+print(another_counter())
+```
+
+</br>Résultat attendu :
+
+```bash
+$> python tester.py
+9
+81
+6561
+---
+1.8371173070873836
+3.056683336818703
+30.42684786675409
+$>
+```
+
+### Exercice 2 - my first decorating
+
+**Objectif**Écrivez une fonction qui prend en argument une limite d'appels pour une autre fonction et bloque son exécution au-delà de cette limite.
+<br/>Le prototype des fonctions
+
+```python
+def callLimit(limit: int):
+count = 0
+def callLimiter(function):
+def limit_function(*args: Any, **kwds: Any):
+#your code here
+```
+
+testeur :
+
+```python
+from callLimit import callLimit
+@callLimit(3)
+def f():
+print ("f()")
+@callLimit(1)
+def g():
+print ("g()")
+for i in range(3):
+f()
+g()
+```
+
+</br>Résultat attendu :
+
+```bash
+$> python tester.py
+f()
+g()
+f()
+Error: <function g at 0x7fabdc243ee0> call too many times
+f()
+Error: <function g at 0x7fabdc243ee0> call too many times
 $>
 ```
