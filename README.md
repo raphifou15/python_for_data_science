@@ -51,13 +51,20 @@
 
 - [Exercice 0 : Load my Dataset](#exercice-0--load-my-dataset)
 - [Exercice 1 : Draw my country](#exercice-1--draw-my-country)
-- [Exercice 2: Compare my country](#exercice-2-compare-my-country)
+- [Exercice 2 : Compare my country](#exercice-2-compare-my-country)
+- [Exercice 3 : Draw my year](#exercice-3-draw-my-year)
+
 </details>
 
 <details>
 
 <summary>6. <a href="#oop">OOP</a></summary>
+
 - [Exercice 0 : GOT S1E9](#exercice-0--got-s1e9)
+- [Exercice 1 : GOT S1E7](#exercice-1--got-s1e7)
+- [Exercice 2 : Now it’s weird!](#exercice-2---now-its-weird)
+- [Exercice 3 : Calculate my vector](#exercice-3--calculate-my-vector)
+- [Exercice 4 : Calculate my dot product](#exercice-4--calculate-my-dot-product)
 
 </details>
 
@@ -735,7 +742,7 @@ $>
 
 **Objectif** Créez un programme qui appelle la fonction de chargement du premier exercice, charge le fichier population_total.csv, et affiche les informations sur le pays de votre campus par rapport à un autre pays de votre choix. Votre graphique doit avoir un titre, une légende pour chaque axe et une légende pour chaque courbe. Vous devez afficher les années de 1800 à 2050.
 
-### Exercice 03: Draw my year
+### Exercice 3: Draw my year
 
 **Objectif** Créez un programme qui appelle la fonction de chargement du premier exercice, charge les fichiers income_per_person_gdppercapita_ppp_inflation_adjusted.csv et life_expectancy_years.csv, et affiche la projection de l'espérance de vie en relation avec le produit national brut de l'année 1900 pour chaque pays.
 Votre graphique doit avoir un titre, une légende pour chaque axe, et une légende pour chaque courbe.
@@ -803,4 +810,187 @@ hodor = Character("hodor")
 
 ```bash
 TypeError: Can't instantiate abstract class Character with abstract method
+```
+
+### Exercice 1 : GOT S1E7
+
+**Objectif** Créez deux familles qui héritent de la classe Character, que l'on peut instancier sans passer par la classe Character. Trouvez une solution pour que **str** et **repr** renvoient des chaînes de caractères et non des objets. Écrivez une méthode de classe pour créer des personnages en chaîne.
+
+</br>Voici comment elle devrait être prototypée:
+
+```python
+from S1E9 import Character
+class Baratheon(Character):
+#your code here
+class Lannister(Character):
+#your code here
+# decorator
+def create_lannister(your code here):
+```
+
+testeur :
+
+```python
+from S1E7 import Baratheon, Lannister
+Robert = Baratheon("Robert")
+print(Robert.__dict__)
+print(Robert.__str__)
+print(Robert.__repr__)
+print(Robert.is_alive)
+Robert.die()
+print(Robert.is_alive)
+print(Robert.__doc__)
+print("---")
+Cersei = Lannister("Cersei")
+print(Cersei.__dict__)
+print(Cersei.__str__)
+print(Cersei.is_alive)
+print("---")
+Jaine = Lannister.create_lannister("Jaine", True)
+print(f"Name : {Jaine.first_name, type(Jaine).__name__}, Alive : {Jaine.is_alive}")
+```
+
+</br>Résultat attendu : (Les docstrings peuvent être différents)
+
+```bash
+$> python tester.py
+{'first_name': 'Robert', 'is_alive': True, 'family_name': 'Baratheon', 'eyes': 'brown', 'hairs': 'dark'}
+<bound method Baratheon.__str__ of Vector: ('Baratheon', 'brown', 'dark')>
+<bound method Baratheon.__repr__ of Vector: ('Baratheon', 'brown', 'dark')>
+True
+False
+Representing the Baratheon family.
+---
+{'first_name': 'Cersei', 'is_alive': True, 'family_name': 'Lannister', 'eyes': 'blue', 'hairs': 'light'}
+<bound method Lannister.__str__ of Vector: ('Lannister', 'blue', 'light')>
+True
+---
+Name : ('Jaine', 'Lannister'), Alive : True
+$>
+```
+
+### Exercice 2 - Now its weird
+
+**Objectif**Dans cet exercice, vous allez créer un monstre : Joffrey Baratheon. C'est tellement risqué ! Il y a quelque chose d'incohérent avec ce nouveau « faux » roi. Vous devez utiliser les propriétés pour modifier les caractéristiques physiques de notre nouveau roi.
+
+</br>Voici comment elle devrait être prototypée:
+
+```python
+from S1E7 import Baratheon, Lannister
+class King(Baratheon, Lannister):
+#your code here
+```
+
+testeur :
+
+```python
+from DiamondTrap import King
+Joffrey = King("Joffrey")
+print(Joffrey.__dict__)
+Joffrey.set_eyes("blue")
+Joffrey.set_hairs("light")
+print(Joffrey.get_eyes())
+print(Joffrey.get_hairs())
+print(Joffrey.__dict__)
+```
+
+</br>Résultat attendu : (Les docstrings peuvent être différents)
+
+```bash
+$> python tester.py
+{'first_name': 'Joffrey', 'is_alive': True, 'family_name': 'Baratheon', 'eyes': 'brown', 'hair': 'dark'}
+blue
+light
+{'first_name': 'Joffrey', 'is_alive': True, 'family_name': 'Baratheon', 'eyes': 'blue', 'hairs': 'light'}
+$>
+```
+
+### Exercice 3 : Calculate my vector
+
+**Objectif**Écrivez une classe Calculatrice capable d'effectuer des calculs (addition, multiplication, soustraction, division) entre un vecteur et un scalaire.
+</br>Voici comment elle devrait être prototypée:
+
+```python
+class calculator:
+#your code here
+def __add__(self, object) -> None:
+#your code here
+def __mul__(self, object) -> None:
+#your code here
+def __sub__(self, object) -> None:
+#your code here
+def __truediv__(self, object) -> None:
+#your code here
+```
+
+testeur :
+
+```python
+from ft_calculator import calculator
+v1 = calculator([0.0, 1.0, 2.0, 3.0, 4.0, 5.0])
+v1 + 5
+Print("---")
+v2 = calculator([0.0, 1.0, 2.0, 3.0, 4.0, 5.0])
+v2 * 5
+Print("---")
+v3 = calculator([10.0, 15.0, 20.0])
+v3 - 5
+v3 / 5
+```
+
+</br>Résultat attendu : (Les docstrings peuvent être différents)
+
+```bash
+$> python tester.py
+[5.0, 6.0, 7.0, 8.0, 9.0, 10.0]
+---
+[0.0, 5.0, 10.0, 15.0, 20.0, 25.0]
+---
+[5.0, 10.0, 15.0]
+[1.0, 2.0, 3.0]
+$>
+```
+
+### Exercice 4 : Calculate my dot product
+
+**Objectif**Écrivez une classe de calculatrice capable d'effectuer des calculs (produit scalaire, addition, soustraction) sur 2 vecteurs. Les vecteurs auront toujours des tailles identiques, aucun traitement d'erreurs n'est requis.
+À vous de trouver un décorateur qui vous permettra d'utiliser les méthodes de la classe de calculatrice sans instancier cette classe.
+
+</br>Voici comment elle devrait être prototypée:
+
+```python
+class calculator:
+#your code here
+# decorator
+def dotproduct(V1: list[float], V2: list[float]) -> None:
+#your code here
+# decorator
+def add_vec(V1: list[float], V2: list[float]) -> None:
+#your code here
+# decorator
+def sous_vec(V1: list[float], V2: list[float]) -> None:
+#your code here
+```
+
+testeur :
+
+```python
+from ft_calculator import calculator
+a = [5, 10, 2]
+b = [2, 4, 3]
+calculator.dotproduct(a,b)
+calculator.add_vec(a,b)
+calculator.sous_vec(a,b)
+
+```
+
+</br>Résultat attendu : (Les docstrings
+peuvent être différents)
+
+```
+$> python tester.py
+Dot product is: 56
+Add Vector is : [7.0, 14.0, 5.0]
+Sous Vector is: [3.0, 6.0, -1.0]
+$>
 ```
