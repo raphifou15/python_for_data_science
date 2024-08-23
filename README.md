@@ -1135,3 +1135,48 @@ f()
 Error: <function g at 0x7fabdc243ee0> call too many times
 $>
 ```
+
+### Exercice 3 - data class
+
+**Objectif**Écrivez une dataclass qui prend en arguments un nom et un surnom, définit active à True, crée le login étudiant et génère un ID aléatoire avec la fonction generate_id. Vous ne devez pas utiliser str ni repr dans votre classe.
+</br>Le prototype de la fonction et de la classe est:
+
+```python
+import random
+import string
+from dataclasses import dataclass, field
+def generate_id() -> str:
+return "".join(random.choices(string.ascii_lowercase, k = 15))
+@dataclass
+class Student:
+#your code here
+```
+
+testeur :
+
+```python
+from new_student import Student
+student = Student(name = "Edward", surname = "agle")
+print(student)
+```
+
+</br>Résultat attendu :
+
+```bash
+$> python tester.py
+Student(name='Edward', surname='agle', active=True, login='Eagle', id='trannxhndgtolvh')
+$>
+```
+
+```python
+from new_student import Student
+student = Student(name = "Edward", surname = "agle", id = "toto")
+print(student)
+```
+
+```bash
+$> python tester.py
+...
+TypeError: Student.__init__() got an unexpected keyword argument 'id'
+$>
+```
