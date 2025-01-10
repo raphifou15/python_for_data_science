@@ -24,6 +24,16 @@ def NULL_not_found(object: any) -> int:
         a = False
     if not a or object != object:
         name = type(object).__name__
+        if name == "NoneType":
+            name = "Nothing"
+        elif name == "float":
+            name = "Cheese"
+        elif name == "int":
+            name = "Zero"
+        elif name == "str":
+            name = "Empty"
+        elif name == "bool":
+            name = "Fake"
         print(f"{name}: {object} {type(object)}")
         return 0
     print("Type not Found")
