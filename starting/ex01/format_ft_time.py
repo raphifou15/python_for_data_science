@@ -15,7 +15,7 @@ science = "{:.2e}".format(seconds)
 secondesFr = f"{seconds:,.4f}"
 str = (
     f"Seconds since January 1, 1970: {secondesFr}"
-    f"or {science} in scientific notation"
+    f" or {science} in scientific notation"
 )
 
 # Convertit le nombre de secondes écoulées depuis l'époque Unix
